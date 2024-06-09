@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Como react es una libreria, la podemos usar importandola -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Babel es para traducir codigo js antiguo/actual o jsx a codigo js que el navegador entienda -->
+
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // text/babel es para especificar que lo que esta adentro se traduzca usando babel
+      const divRoot = document.querySelector("#root");
+
+      const nombre = "Sebas";
+      const h1Tag = <h1>Hola {nombre}</h1>; // Codigo js en codigo jsx
+
+      ReactDOM.render(h1Tag, divRoot);
+    </script>
+  </body>
+</html>
