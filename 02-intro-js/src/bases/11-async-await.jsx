@@ -16,6 +16,18 @@ import { getHeroeById } from "./bases/08-imp-exp";
 
 // console.log(getData()); // undefined
 
+// Lo anterior se puede hacer con un callback
+
+const getData = (callback) => {
+  setTimeout(() => {
+    callback(heroes);
+  }, 2000);
+};
+
+getData((data) => {
+  console.log(data);
+});
+
 const getHeroeByIdAsync = async (id) => {
   // Se puede poner el async o se puede ignorar ya que como retornaa una promesa no seria necesario
   return new Promise((resolve, reject) => {
