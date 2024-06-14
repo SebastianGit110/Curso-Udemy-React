@@ -51,7 +51,7 @@ const getImagen = async () => {
 
     const resp = await fetch(
       `https://api.giphy.com/v1/gifs/random?api_key=${api_key}`
-    ); // El await dice espera que termine esto asincrono para continuar y lo hace ver como si fuera sincrono
+    ); // El await dice espera que termine esto asincrono o esperar que la promesa se resuelva y devolver el valor resuelto para continuar y lo hace ver como si fuera sincrono
     const data = await resp.json();
 
     return data;
