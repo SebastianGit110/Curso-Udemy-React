@@ -3,8 +3,8 @@
 // async es independiente del await pero el await es dependiente del async
 // Para manejar errores en async y await toca usar trycatch
 
-import heroes from "./data/heroes";
-import { getHeroeById } from "./bases/08-imp-exp";
+import heroes from "../data/heroes";
+import { getHeroeById } from "./08-imp-exp";
 
 // setTimeout simula la asincronia por lo que si hay algo asincrono, primero se hace lo sincrono y despues lo asincrono entonces aqui la funcion getData es sincrona por lo que primero se devuelve su valor que es undefined y despues se hace lo asincrono que es setTimeout
 
@@ -28,8 +28,8 @@ getData((data) => {
   console.log(data);
 });
 
-const getHeroeByIdAsync = async (id) => {
-  // Se puede poner el async o se puede ignorar ya que como retornaa una promesa no seria necesario
+export const getHeroeByIdAsync = async (id) => {
+  // Se puede poner el async o se puede ignorar ya que como retorna una promesa no seria necesario
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const heroe = getHeroeById(id);
@@ -40,7 +40,12 @@ const getHeroeByIdAsync = async (id) => {
   });
 };
 
-// console.log(await getHeroeByIdAsync(3)); // Uso con await para tratarlo como sincrono
+console.log(await getHeroeByIdAsync(3)); // Uso con await para tratarlo como sincrono
+
+const funcion = async () => {
+  // Para usar el await aqui toca usar el async en la funcion ya que en el ejemplo de arriba se puede usara sin async porque js lo permite gracias al top-level de node 18 pero aqui por ser funcion si toca poner el async
+  console.log(await getHeroeByIdAsync(3));
+};
 
 // Hacer lo mismo que se hizo con el fetch pero con async-await
 
