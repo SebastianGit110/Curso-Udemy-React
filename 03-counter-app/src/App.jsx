@@ -32,7 +32,8 @@ function App({ title, subtitulo }) {
       {/* <code>{JSON.stringify(nombre)}</code> */}
       {/* <h1>{funcion()}</h1> */}
 
-      <h1>{title}</h1>
+      <h1 data-testid="test-title"> {title} </h1>
+      <p>{subtitulo}</p>
       <p>{subtitulo}</p>
     </Fragment>
   );

@@ -43,7 +43,7 @@ export const getHeroeByIdAsync = async (id) => {
 console.log(await getHeroeByIdAsync(3)); // Uso con await para tratarlo como sincrono
 
 const funcion = async () => {
-  // Para usar el await aqui toca usar el async en la funcion ya que en el ejemplo de arriba se puede usara sin async porque js lo permite gracias al top-level de node 18 pero aqui por ser funcion si toca poner el async
+  // Para usar el await aqui toca usar el async en la funcion ya que en el ejemplo de arriba se puede usar sin async porque js lo permite gracias al top-level de node 18 pero aqui por ser funcion si toca poner el async
   console.log(await getHeroeByIdAsync(3));
 };
 

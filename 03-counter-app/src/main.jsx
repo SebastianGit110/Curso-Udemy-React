@@ -7,8 +7,8 @@ import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App title={"hhhh"} />
+    <App title="ddd" />
     {/* mandar una prop asi: title, es igual que asi title={true} */}
-    <CounterApp value={123} />
+    {/* <CounterApp value={123} /> */}
   </React.StrictMode>
 );
