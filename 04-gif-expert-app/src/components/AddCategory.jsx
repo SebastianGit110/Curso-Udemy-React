@@ -32,4 +32,6 @@ const AddCategory = ({ setCategory }) => {
   );
 };
 
+// export const array = [1, 2, 3];
+
 export default AddCategory;

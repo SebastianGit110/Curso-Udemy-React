@@ -1,9 +1,8 @@
 import { useState } from "react";
-import AddCategory from "./components/AddCategory";
-import GifGrid from "./components/GifGrid";
+import comp, { AddCategory, GifGrid } from "./components/index.js";
 
 const GifExpertApp = () => {
-  const [categories, setCategories] = useState(["casas"]);
+  const [categories, setCategories] = useState(["libros"]);
   // No se recomienda tener hooks condicionalmente if(true) useState...
 
   const onAddCategory = (newValue) => {
