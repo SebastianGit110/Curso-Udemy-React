@@ -14,5 +14,5 @@ export default async (category) => {
   }));
 
   // console.log(gifs);
-  return gifs; // Array de objetos
+  return gifs; // La promesa se resuelve con este Array de objetos
 };
