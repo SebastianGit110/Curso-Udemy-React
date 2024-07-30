@@ -2,6 +2,7 @@
 
 // async es independiente del await pero el await es dependiente del async
 // Para manejar errores en async y await toca usar trycatch
+// El async - await es como la mejora de las promesas
 
 import heroes from "../data/heroes";
 import { getHeroeById } from "./08-imp-exp";

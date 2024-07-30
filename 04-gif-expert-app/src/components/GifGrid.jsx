@@ -3,7 +3,7 @@ import useFetchGifs from "../hooks/useFetchGifs.js";
 import GifItem from "./GifItem.jsx";
 
 const GifGrid = ({ category }) => {
-  const { images, isLoading, deleteImage } = useFetchGifs(category); // Este custom hook es lo mismo que si tuvieramos el codigo que esta en el hook pero aqui. Es mejor volverlo custom hook por si necesitamos su funcionalidad en otro componente
+  const { images, isLoading, deleteImage } = useFetchGifs(category); // Este custom hook es lo mismo que si tuvieramos el codigo que esta en el hook pero aqui es mejor volverlo custom hook por si necesitamos su funcionalidad en otro componente
 
   // const [counter, setCounter] = useState(10);
   // setCounter(counter + 1); // Poner este setCounter aqui es un error ya que cuando se monta el componente react llama al setCounter y este cambia el estado y vuelve a renderizarlo y asi sucesivamente por lo que crea un ciclo infinito
