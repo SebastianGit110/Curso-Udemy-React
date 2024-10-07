@@ -1,11 +1,12 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const AddCategory = ({ setCategory }) => {
   const [inputValue, setInputValue] = useState("Holaa");
 
   const onInputChange = (event) => {
     // console.log(event.target.value);
-    setInputValue(event.target.value);
+    setInputValue(event.target.value); // Si esta linea no existe, la prueba (en test) no pasa
   };
 
   const onSubmit = (event) => {
@@ -13,9 +14,9 @@ const AddCategory = ({ setCategory }) => {
 
     if (inputValue.trim().length <= 1) return; // Si no cumple esta condicion sale de la funcion
 
-    // setCategory((category) => [...category, inputValue]); // Aqui como le estamos mandando directamente la funcion setCategory del useState del comp GifExpertApp entonces en este componente el no sabria que array copiar (...category) por lo que en este caso es que es util que esa funcion pueda recibir un callback
+    // setCategories((category) => [...category, inputValue]); // Aqui como le estamos mandando directamente la funcion setCategory del useState del comp GifExpertApp entonces en este componente el no sabria que array copiar (...category) por lo que en este caso es que es util que esa funcion pueda recibir un callback
 
-    setCategory(inputValue);
+    setCategory(inputValue); // Otra forma de hacer lo mismo de arriba
     setInputValue(""); // Aqui como se esta cambiando el estado primero con setCategory y despues con setInputValue react no re-renderiza el componente 2 veces por cada llamado a esas funciones sino que espera que termina la funcion principal onSubmit para hacer solo una re-renderizacion
   };
 
@@ -35,3 +36,7 @@ const AddCategory = ({ setCategory }) => {
 // export const array = [1, 2, 3];
 
 export default AddCategory;
+
+AddCategory.propTypes = {
+  setCategory: PropTypes.func.isRequired, // Debe pasar la funcion setCategory
+};

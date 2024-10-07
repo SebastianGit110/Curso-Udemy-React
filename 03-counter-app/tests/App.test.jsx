@@ -6,7 +6,7 @@ describe("Pruebas en <App />", () => {
   //   const title = "Hola soy el titulo";
   //   const { container } = render(<App title={title} />); // container es como un nodo del dom
 
-  //   expect(container).toMatchSnapshot(); // Crea una carpeta de snapshots en el mismo nivel donde se ejecuta la instruccion. La primera vez que se ejecuta el snapshot se toma la instantanea del componente y lo deja almacenado en la carpeta. Esto sirve para que si se cambia el componente, y se vualve a ejecutar la prueba se va a comparar el resultado de la renderizacion del componente con el snapshot almacenado para ver los cambios y si es diferente, bota error. Si sale el error se puede presionar la tecla "u" para guardar los cambios en el archivo .snap
+  //   expect(container).toMatchSnapshot(); // Crea una carpeta de snapshots en el mismo nivel donde se ejecuta la instruccion. La primera vez que se ejecuta el snapshot se toma la instantanea del componente y lo deja almacenado en la carpeta. Esto sirve para que si se cambia el componente, y se vuelve a ejecutar la prueba se va a comparar el resultado de la renderizacion del componente con el snapshot almacenado para ver los cambios y si es diferente, bota error. Si sale el error se puede presionar la tecla "u" para guardar los cambios en el archivo .snap
   // });
 
   test("Debe mostrar el titulo en un h1", () => {

@@ -16,8 +16,13 @@ const GifExpertApp = () => {
   return (
     <>
       <h1>Gif Expert App</h1>
-      <AddCategory setCategory={(value) => onAddCategory(value)} />
-
+      <AddCategory
+        setCategory={(value) => {
+          onAddCategory(value);
+          console.log("Pruebas de uso callback");
+        }}
+      />{" "}
+      {/* actua de callback y es lo mismo que escribir solo onAddCategory */}
       {categories.map((category, i) => (
         <GifGrid key={category} category={category} /> // Aqui podriamos usar el indice para ponerlo como key pero react no lo recomienda ya que cuando se elimine un elemento react usa el key y puede que despues hayan dos elementos con el mismo indice entonces podrian haber resultados inesperados.
 

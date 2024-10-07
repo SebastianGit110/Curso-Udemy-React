@@ -6,5 +6,6 @@ describe("Pruebas en el 02-template-str", () => {
     const message = saludar(name);
 
     expect(message).toBe(`Hola ${name}`);
+    // toBe verifica igualdad por referencia mientras que toEqual realiza una comparacion profunda de las propiedades
   });
 });
