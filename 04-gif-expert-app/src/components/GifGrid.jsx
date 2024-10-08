@@ -1,8 +1,10 @@
 import useFetchGifs from "../hooks/useFetchGifs.js";
+import PropTypes from "prop-types";
 
 import GifItem from "./GifItem.jsx";
 
 const GifGrid = ({ category }) => {
+  // Cuando vamos a hacer las pruebas a este componente hacemos como si el useFetchGifs que es un custom hook aparte ya este testiado
   const { images, isLoading, deleteImage } = useFetchGifs(category); // Este custom hook es lo mismo que si tuvieramos el codigo que esta en el hook pero aqui es mejor volverlo custom hook por si necesitamos su funcionalidad en otro componente
 
   // const [counter, setCounter] = useState(10);
@@ -11,7 +13,7 @@ const GifGrid = ({ category }) => {
   return (
     <>
       <h3>{category}</h3>
-      {isLoading && <h1>Cargando...</h1>}
+      {isLoading && <h1>Cargando...</h1>} {/* Primero es true y despues false porque react ejecuta primero el codigo fuera del useEffect y despues lo de adentro */} 
       <div className="card-grid">
         {/* <button onClick={() => setCounter(counter + 1)}>{counter}</button> * Cada que se se oprima el btn se cambia el estado * */}
         {images.map((image) => (
@@ -24,3 +26,7 @@ const GifGrid = ({ category }) => {
 };
 
 export default GifGrid;
+
+GifGrid.propTypes = {
+  category: PropTypes.string.isRequired,
+};
