@@ -1,7 +1,15 @@
 import { useForm } from "../hooks/useForm";
 
 export const FormWithCustomHook = () => {
-  const { formState, handleOnChange, username, email, password } = useForm({
+  const {
+    formState,
+    onInputChange,
+    username,
+    email,
+    password,
+    onResetForm,
+    onDefaultEmail,
+  } = useForm({
     username: "",
     email: "",
     password: "",
@@ -20,7 +28,7 @@ export const FormWithCustomHook = () => {
         placeholder="Username"
         name="username"
         value={username}
-        onChange={handleOnChange}
+        onChange={onInputChange}
       ></input>
 
       <input
@@ -29,7 +37,7 @@ export const FormWithCustomHook = () => {
         placeholder="email@email.com"
         name="email"
         value={email}
-        onChange={handleOnChange}
+        onChange={onInputChange}
       ></input>
 
       <input
@@ -38,8 +46,19 @@ export const FormWithCustomHook = () => {
         placeholder="Contraseña"
         name="password"
         value={password}
-        onChange={handleOnChange}
+        onChange={onInputChange}
       ></input>
+
+      <button className="btn btn-primary mt-2" onClick={onResetForm}>
+        Borrar
+      </button>
+
+      <button
+        className="btn btn-primary mt-2"
+        onClick={() => onDefaultEmail("email")} // Mando el nombre de la prop como String para despues usar props computadas
+      >
+        Email
+      </button>
     </>
   );
 };
