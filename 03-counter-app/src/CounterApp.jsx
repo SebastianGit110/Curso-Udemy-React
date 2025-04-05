@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 const CounterApp = ({ value }) => {
-  // Cuando cambia el estado, el componente se vuelve a ejecutar por lo que si hay algo asincrono en nuestro componente tocac saber bien donde debe ir eso porque se puede ejecutar varias veces sin querer
+  // Cuando cambia el estado, el componente se vuelve a ejecutar por lo que si hay algo asincrono en nuestro componente toca saber bien donde debe ir eso porque se puede ejecutar varias veces sin querer
 
   const [counter, setCounter] = useState(value); // const counter = 0. Se usa const... para que no le podamos asignar un valor variable
 
