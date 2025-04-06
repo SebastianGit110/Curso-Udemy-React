@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// React hook form hace algo parecido pero con mas herramientas
+
 export const useForm = (initialForm) => {
   const [formState, setFormState] = useState(initialForm);
 
