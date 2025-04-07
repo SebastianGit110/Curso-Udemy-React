@@ -7,15 +7,18 @@ import { CounterWithCustomHook } from "./01-useState/CounterWithCustomHook.jsx";
 import { SimpleForm } from "./02-useEffect/SimpleForm.jsx";
 import { FormWithCustomHook } from "./02-useEffect/FormWithCustomHook.jsx";
 import { MultipleCustomHooks } from "./03-examples/MultipleCustomHooks.jsx";
+import { FocusScreen, FocusScreen2 } from "./04-useRef/FocusScreen.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
-    <HooksApp />
+    {/* <HooksApp />
     <CounterApp1 />
     <CounterApp2 />
     <CounterWithCustomHook />
     <SimpleForm />
     <FormWithCustomHook />
-    <MultipleCustomHooks />
+    <MultipleCustomHooks /> */}
+    <FocusScreen />
+    <FocusScreen2 />
   </>
 );
