@@ -8,6 +8,7 @@ import { SimpleForm } from "./02-useEffect/SimpleForm.jsx";
 import { FormWithCustomHook } from "./02-useEffect/FormWithCustomHook.jsx";
 import { MultipleCustomHooks } from "./03-examples/MultipleCustomHooks.jsx";
 import { FocusScreen, FocusScreen2 } from "./04-useRef/FocusScreen.jsx";
+import { Layout } from "./05-useLayouEffect/Layout.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
@@ -17,8 +18,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <CounterWithCustomHook />
     <SimpleForm />
     <FormWithCustomHook />
-    <MultipleCustomHooks /> */}
+    <MultipleCustomHooks />
     <FocusScreen />
-    <FocusScreen2 />
+    <FocusScreen2 /> */}
+    <Layout />
   </>
 );
