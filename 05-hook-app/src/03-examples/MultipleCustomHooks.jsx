@@ -33,7 +33,7 @@ export const MultipleCustomHooks = () => {
       {/* Como hay una demora mientras se hace una peticion a la url si uno pone data.name estaria leyendo una prop null y da error, se soluciona poniendo ? antes del punto para decir por si es un obj real */}
 
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      {/* Los objetos no son serializables en react por lo que no se pueden imprimir directamente en el dom */}
+      {/* Los objetos no son serializables en react por lo que no se pueden imprimir directamente en el dom, ni los booleanos se pueden mostrar toca con stringify */}
       <button
         className="btn btn-primary mt-2"
         onClick={
