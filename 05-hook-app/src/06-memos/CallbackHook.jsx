@@ -14,9 +14,10 @@ export const CallbackHook = () => {
   //   }, [deps]);
 
   // Funcion en un mismo espacio de memoria
-  const incrementFatherCallback = useCallback(() => {
+  const incrementFatherCallback = useCallback((value) => {
+    // Aqui yo puedo recibir los parametros porque esta seria la funcion que memorizo
     // setCounter(counter + 1); // Si lo hago de este modo como esto es lo que se memoriza siempre va a tener el mismo valor porque esta memorizando tambien el counter, aqui es donde el uso del callback en setCounter es util porque ahi no se hace referencia al counter directamente
-    setCounter((value) => value + 1);
+    setCounter((count) => count + value);
   }, []); // Si aqui usando el setCounter de la forma setCounter(counter + 1); y pongo como deps "counter" seguiria ejecutandose siempre el <ShowIncremet /> porque cada que cambia el counter vuelve a memorizar el counter con un valor diferente y es una funcion diferente
 
   // Usamos esta funcion en lugar de la del useCounter porque vamos a hacer uso del setCounter con el callback adentro en el hook useCallback arriba
@@ -25,7 +26,7 @@ export const CallbackHook = () => {
   };
 
   useEffect(() => {
-    incrementFatherCallback();
+    // incrementFatherCallback();
   }, [incrementFatherCallback]); // Si no estuvieramos usando el useCallback seguiria un ciclo infinito ya que se monta el componente, se ejecuta incrementFatherCallback, aumenta 1 que eso cambia el state por lo que este componente se vuelve a redibuja y crea la funcion en otro espacio de memoria por lo que como cambia la funcion y esta en las deps, se vuelve a ejecutar y asi infinito
 
   return (
