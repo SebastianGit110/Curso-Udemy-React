@@ -16,9 +16,9 @@ export const CallbackHook = () => {
   // Funcion en un mismo espacio de memoria
   const incrementFatherCallback = useCallback((value) => {
     // Aqui yo puedo recibir los parametros porque esta seria la funcion que memorizo
-    // setCounter(counter + 1); // Si lo hago de este modo como esto es lo que se memoriza siempre va a tener el mismo valor porque esta memorizando tambien el counter, aqui es donde el uso del callback en setCounter es util porque ahi no se hace referencia al counter directamente
+    // setCounter(counter + 1); // Si lo hago de este modo como esto es lo que se memoriza siempre va a tener el mismo valor porque esta memorizando la funcion con el valor del counter que tenga en el momento, aqui es donde el uso del callback en setCounter es util porque ahi no se hace referencia al counter directamente
     setCounter((count) => count + value);
-  }, []); // Si aqui usando el setCounter de la forma setCounter(counter + 1); y pongo como deps "counter" seguiria ejecutandose siempre el <ShowIncremet /> porque cada que cambia el counter vuelve a memorizar el counter con un valor diferente y es una funcion diferente
+  }, []); // Si pongo como deps "counter" seguiria ejecutandose siempre el <ShowIncremet /> porque cada que cambia el counter vuelve a memorizar la funcion en un espacio de memoria diferente
 
   // Usamos esta funcion en lugar de la del useCounter porque vamos a hacer uso del setCounter con el callback adentro en el hook useCallback arriba
   const incrementFather = () => {
