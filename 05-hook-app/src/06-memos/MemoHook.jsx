@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { useCounter } from "../hooks";
-import { use } from "react";
 
 // Las funciones que estan aqui aunque el componente se redibuje las veces que sea estas no se van a asignar otra vez en memoria o a reprocesar por lo que siempre que se pueda es mejor dejarlas aqui afuera
 
