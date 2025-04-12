@@ -11,8 +11,9 @@ import "./index.css";
 // import { Layout } from "./05-useLayouEffect/Layout.jsx";
 // import { Memorize } from "./06-memos/Memorize.jsx";
 // import { MemoHook } from "./06-memos/MemoHook";
-import { CallbackHook } from "./06-memos/CallbackHook";
-import { Padre } from "./07-tarea-memo/Padre";
+// import { CallbackHook } from "./06-memos/CallbackHook";
+// import { Padre } from "./07-tarea-memo/Padre";
+import "./08-useReducer/intro-reducer.js"; // Importacion archivo javascript
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
@@ -28,8 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Layout />
     <Memorize />
     <MemoHook />
-    
-    <Padre /> */}
     <CallbackHook />
+    <Padre /> */}
   </>
 );

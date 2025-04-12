@@ -19,9 +19,10 @@ const useFetchGifs = (category) => {
     const newImages = await getGifs(category);
     setImages(newImages);
     setIsLoading(false); // Solo se re-renderiza una vez sin importar que se cambie el estado dos veces por como react maneja el estado
-    // setTimeout(() => {
-    //   console.log("images1", images);
-    // }, 3000); // Este console.log no se ven las imagenes ya que cuando se ejecuta el setImages pasa directamente al console.log y no alcanza a ver el images pero si se esta asignando ya que en el devTools se ve. Se debe a que en React, las actualizaciones de estado son asíncronas entonces tocaria esperar a que se haga la actualizacion pero no se puede utilizar el await setImages porque esta no devuelve una promesa, eso de asincrono es interno de react
+    setTimeout(() => {
+      console.log("images1", images);
+    }, 5000); // Este console.log no se ven las imagenes ya que cuando se ejecuta el setImages pasa directamente al console.log y no alcanza a ver el images pero si se esta asignando ya que en el devTools se ve. Se debe a que en React, las actualizaciones de estado son asíncronas entonces tocaria esperar a que se haga la actualizacion pero no se puede utilizar el await setImages porque esta no devuelve una promesa, eso de asincrono es interno de react.
+    // React programa la actualización del estado para después del ciclo de ejecución actual y antes del próximo render.
   };
   useEffect(() => {
     getImages();
