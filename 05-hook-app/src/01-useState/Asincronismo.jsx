@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// https://es.react.dev/learn/queueing-a-series-of-state-updates
+
 // useState actualiza el state de manera asincrona
 // React programa la actualización del estado para después del ciclo de ejecución actual y antes del próximo render.
 
