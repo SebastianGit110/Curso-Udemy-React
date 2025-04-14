@@ -66,6 +66,10 @@ export const TodoApp = () => {
     dispatch({ type: "[TODO] Remove Todo", payload: id });
   };
 
+  const handleToggleTodo = (id) => {
+    dispatch({ type: "[TODO] Toggle Todo", payload: id });
+  };
+
   return (
     <>
       <h1>
@@ -81,6 +85,7 @@ export const TodoApp = () => {
             onDeleteTodo={(id) =>
               handleRemoveTodo(id)
             } /* Lo mismo que por referencia onDeleteTodo={handleRemoveTodo} */
+            onToggleTodo={handleToggleTodo}
           />
         </div>
         <div className="col-5">
