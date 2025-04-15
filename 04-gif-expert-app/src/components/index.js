@@ -1,7 +1,7 @@
+export { comp as default };
 export { default as AddCategory } from "./AddCategory";
 export { default as GifGrid } from "./GifGrid";
 export { default as GifItem } from "./GifItem";
-export { comp as default };
 
 const comp = [1, 2, 3];
 
@@ -12,3 +12,5 @@ const comp = [1, 2, 3];
 // Ejemplo: import AddCategory from "./components/AddCategory";
 // import GifGrid from "./components/GifGrid";
 // Cuando es llamado desde otro componente con solo el ./components automaticamente se sabe que se llama al ./components/index.js (no es necesario especificar pero si se quiere se puede)
+
+// Para ordenar las lineas asc o desc ir a view -> command palette y buscar sort lines ascending
