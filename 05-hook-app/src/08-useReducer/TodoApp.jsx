@@ -1,79 +1,21 @@
-import { useEffect, useReducer } from "react";
-import { todoReducer } from "./todoReducer";
-import { TodoList, TodoAdd } from "./index";
-
-// Las cookies se envían automáticamente al servidor con cada request HTTP (siempre que el dominio coincida).
-// Están limitadas en tamaño y suelen usarse para sesiones o autenticación.
-
-// El localStorage almacena datos en el navegador y no se envía automáticamente al servidor.
-// Para enviar datos de localStorage, se debe hacer manualmente mediante una petición HTTP (como con fetch).
-// Solo pueden haber strings en el localStorage, en la vista abajo aparecen como obj porque chrome los serializa pero en realidad guarda obj
+import { useTodos } from "../hooks";
+import { TodoList, TodoAdd } from "./";
 
 export const TodoApp = () => {
-  // La funcion de inicializacion (init) que es el tercer arg se usa cuando se tiene un estadoo relativamente pesado y su resultado va a ser el initialState
-
-  // Esta forma (2) tambien funciona y es parecida haciendolo con init
-  // const initialState2 = JSON.parse(localStorage.getItem("todos")) || [];
-  const initialState = [
-    //   {
-    //     id: new Date().getTime(),
-    //     description: "Comprar huevos",
-    //     done: false,
-    //   },
-    // {
-    //   id: new Date().getTime() * 3, // El * 3 es para que sea un numero diferente ya que lo puede crear rapido y poner el mismo
-    //   description: "Comprar Leche",
-    //   done: false,
-    // },
-  ];
-
-  // Esta forma (1) es la mejor ya que es propia de react y no requiere tanto codigo
-  const init = () => JSON.parse(localStorage.getItem("todos")) || [];
-  // JSON.parse es para deserializar, es decir, de string a ovj y si eso es null regresa []
-
-  // Si tenemos solo un reducer podemos dejar la funcion de dispatch nombrada asi pero si tenemos mas reducer es mejor ser mas descriptivos con el nombre de ese dispatch
-  const [todos, dispatch] = useReducer(todoReducer, initialState, init); // Le mando la ref de la funcion para que el useReducer sea el que la ejecute, no se ejecuta aqui con ()
-  // El dispatch es la funcion encargada de ejecutar o despachar acciones hacia el reducer y es asincrona que maneja react
-
-  // Esta es otra forma (3) de traer el localStorage y establecerlo al state pero necesita mas logica inncesaria
-  /* useEffect(() => {
-    // initialState = JSON.parse(localStorage.getItem("todos")) || []; // Aqui se esta cambiando el valor de initialState por lo del localStorage pero eso ya no va a ser el estado del useReducer ya que inició con initialState = [] y despues aunque esa variable cambie ya no va a cambiar la asignacion al useReducer porque solo se asigna la primera vez
-
-    const action = {
-      type: "[TODO] Set state from localStorage",
-      payload: JSON.parse(localStorage.getItem("todos")) || [],
-    };
-    dispatch(action);
-  }, []); */
-
-  // Cuando los todos (state) cambian vamos a realizar un efecto secundario y ayuda cuando se agreguen o se eliminen todos (en el global state) para actualizar el localStorage
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos) || []); // Toca serializar (de obj a string) el obj para enviarlo al localStorage si JSON.stringify es null regresa []
-  }, [todos]);
-
-  const handleNewTodo = (todo) => {
-    console.log({ todo });
-
-    const action = {
-      type: "[TODO] Add Todo",
-      payload: todo,
-    };
-
-    dispatch(action);
-  };
-
-  const handleRemoveTodo = (id) => {
-    dispatch({ type: "[TODO] Remove Todo", payload: id });
-  };
-
-  const handleToggleTodo = (id) => {
-    dispatch({ type: "[TODO] Toggle Todo", payload: id });
-  };
+  const {
+    todos,
+    todosCount,
+    pendingTodosCount,
+    handleNewTodo,
+    handleRemoveTodo,
+    handleToggleTodo,
+  } = useTodos(); // Esta referencia esta bien solo hacerla aqui porque si la hacemos en otros componentes no van a compartir el mismo state porque la funcion va a estar en otra posicion en memoria, se podria pero con contextAPI
 
   return (
     <>
       <h1>
-        TodoApp: 10, <small>pendientes: 2</small>
+        TodoApp: {todosCount()}
+        <small> pendientes: {pendingTodosCount}</small>
       </h1>
       <hr />
 
