@@ -10,9 +10,9 @@ export const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded-3">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/">
           useContext
-        </NavLink>
+        </Link>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <NavLink
