@@ -12,6 +12,9 @@ import { UserProvider } from "./context/UserProvider";
 // Puedo crear varios context para diferentes cosas como info del user, etc. y el context es HOC
 
 export const MainApp = () => {
+  // Sin el context podria hacer algo asi (es la idea del coontext) en las rutas pero seria mas confuso aun porque puede que en un comp que este dentro de otro sea donde se genere algun dato entonces seria mas confuso el pasar las props
+  const prueba = "Estoy en MainApp";
+
   return (
     <UserProvider>
       {/* Lo que este aqui va a tener acceso al context */}
@@ -24,7 +27,7 @@ export const MainApp = () => {
       <Routes>
         {/* El orden de las <Route /> si importa.
         no es necesario poner "/" antes del nombre */}
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage prueba={prueba} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="about" element={<AboutPage />} />
 
