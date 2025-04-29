@@ -11,15 +11,19 @@ export const useCounter = (initialValue = 10) => {
 
   // value = 1 si no envian nada, value es 1
   const increment = (value = 1) => {
-    setCounter(counter + value);
+    // setCounter(counter + value);
+    setCounter((current) => current + value);
   };
+
+  const decrement = (value = 1) => {
+    if (counter - value <= 0) return;
+    // setCounter(counter - value);
+    setCounter((current) => current - value);
+  };
+
   const reset = () => {
     setCounter(initialValue);
   };
-  const decrement = (value = 1) => {
-    if (counter - value <= 0) return;
-    setCounter(counter - value);
-  };
 
-  return { counter, increment, reset, decrement };
+  return { counter, increment, decrement, reset };
 };
