@@ -5,7 +5,7 @@ describe("Pruebas en todoReducer", () => {
   test("debe regresar el estado inicial", () => {
     const newState = todoReducer(initialState, {});
 
-    expect(newState).toBe(initialState); // Esperamos que sea exactamente el mismo objeto con toBe porque como los obj se pasan por referencia y el todoReducer me retorna el mismo obj entonces se esperaria que sea el mismo, ademas porque no estamos pasando ninguna action entonces entra en el default. Seria diferente a que si en el todoReducer retornara [...initialState] porque eso seria otra posicion en memoria
+    expect(newState).toBe(initialState); // Esperamos que sea exactamente el mismo objeto con toBe porque como los obj se pasan por referencia y el todoReducer me retorna el mismo obj entonces se esperaria que sea el mismo, ademas porque no estamos pasando ninguna action entonces entra en el default. Seria diferente a que si en el default del todoReducer retornara [...initialState] porque eso seria otra posicion en memoria
   });
 
   test("debe agregar un nuevo todo", () => {
