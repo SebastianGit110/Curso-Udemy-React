@@ -13,7 +13,7 @@ export const LoginPage = () => {
       <h1>LoginPage</h1>
       <hr />
 
-      <pre>{JSON.stringify(user, null, 3)}</pre>
+      <pre data-testid="pre">{JSON.stringify(user, null, 3)}</pre>
       <pre>{JSON.stringify(userPrueba, null, 3)}</pre>
 
       <button

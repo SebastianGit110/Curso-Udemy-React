@@ -24,6 +24,7 @@ export const NavBar = () => {
               About
             </NavLink>
             <NavLink
+              aria-label="loginLabel"
               className={(args) => {
                 return `nav-link ${args.isActive ? "active" : ""}`;
               }}

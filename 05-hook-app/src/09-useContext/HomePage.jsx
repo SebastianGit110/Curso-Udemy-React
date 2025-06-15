@@ -13,7 +13,7 @@ export const HomePage = ({ prueba }) => {
       </h1>
       <hr />
 
-      <pre>{JSON.stringify(user, null, 3)}</pre>
+      <pre aria-label="pre">{JSON.stringify(user, null, 3)}</pre>
       <pre>{JSON.stringify(userPrueba, null, 3)}</pre>
     </>
   );
